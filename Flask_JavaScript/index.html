@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Jhones</title>
+    <style>
+        h1{
+            color:white;
+            text-align:left;
+             font-size:50px;
+             background-color:#B22222;
+             width:63%;
+             opacity:0.8
+        }
+        p{
+            color:white;
+            font-size:20px
+        }
+        .captured{
+            color:#5F9EA0;
+        }
+        a{
+            color:#008000;
+            text-decoration: none;
+            font-size:20px;
+        }
+    </style>
+</head>
+<body style="background-color:#1C1C1C">
+<h1>
+    Get Your Youtube Video Or Thumbnail
+</h1>
+<p>Get your youtube thumbnail</p>
+<input type="url" id="link_video" name="link_video" required>
+<button onclick="get_thumbnail();">Get it now!</button>
+<br>
+<br>
+<div class="captured"><strong>Captured Image:</strong></div>
+<div>
+    <img id="img" src="">
+</div>
+<p>Get your youtube video</p>
+<input type="url" id="video" name="video" required>
+<button onclick="get_iframevideo();">Get it now!</button>
+<br>
+<br>
+<div class="captured"><strong>Captured Video:</strong></div>
+<br>
+<br>
+<div>
+    <a id="video_get"  href="#" ></a>
+</div>
+
+
+<br>
+<br>
+
+<script>
+    function get_thumbnail(){
+    link_video = document.getElementById('link_video').value
+    video_id=link_video.split('v=')[1]
+    document.getElementById('img').setAttribute('src', `https://i3.ytimg.com/vi/${video_id}/maxresdefault.jpg`)
+    document.querySelector('input[id=link_video]').value ='';
+    }
+    function get_iframevideo(){
+    video_get = document.getElementById('video').value
+    video = video_get.split('v=')[1]
+    document.getElementById('video_get').setAttribute('target', `_blank`)
+    document.getElementById('video_get').setAttribute('href', `https://www.ssyoutube.com/watch?v=${video}`)
+    document.getElementById('video_get').innerHTML="Click here to download the video!"
+    document.querySelector('input[id=video]').value ='';
+    }
+</script>
+</body>
+</html>
